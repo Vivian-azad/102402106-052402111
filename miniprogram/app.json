@@ -1,6 +1,11 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/publish/publish",
+    "pages/publish-success/publish-success",
+    "pages/search/search",
+    "pages/detail/detail",
+    "pages/my-publish/my-publish"
   ],
   "window": {
     "backgroundColor": "#FBF9F4",
@@ -9,6 +14,17 @@
     "navigationBarTitleText": "校园失物招领",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#B8B3C7",
+    "selectedColor": "#3ECFA0",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/publish/publish", "text": "发布" },
+      { "pagePath": "pages/my-publish/my-publish", "text": "我的" }
+    ]
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",

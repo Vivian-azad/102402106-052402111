@@ -1,0 +1,153 @@
+<!-- ============ 发布页 · 1:1 还原设计稿 ============ -->
+<view class="pub has-tabbar">
+
+  <!-- 光斑装饰 -->
+  <view class="blob blob-pink   pub-blob-1"></view>
+  <view class="blob blob-mint   pub-blob-2"></view>
+  <view class="blob blob-purple pub-blob-3"></view>
+  <view class="blob blob-blue   pub-blob-4"></view>
+
+  <!-- ① 顶部：返回圆钮 + 居中标题 + 吉祥物 -->
+  <view class="pub-top">
+    <view class="back-btn" bindtap="back">
+      <view class="back-arrow"></view>
+    </view>
+    <view class="pub-head">
+      <text class="pub-title">{{isEdit ? '编辑信息' : (typeIndex === 0 ? '发布失物' : '发布招领')}}</text>
+      <text class="pub-sub">{{isEdit ? '修改后立即生效' : (typeIndex === 0 ? '帮助失主找回心爱的物品' : '帮助物品找到它的主人')}}</text>
+    </view>
+    <image class="pub-mascot floaty" src="{{mascot}}" mode="aspectFit" />
+  </view>
+
+  <!-- ② 分段控件：失物 / 招领 -->
+  <view class="seg-wrap">
+    <view class="seg">
+      <view class="seg-item {{typeIndex === 0 ? 'on' : ''}}" data-i="0" bindtap="pickType">
+        <view class="seg-emoji {{typeIndex === 0 ? 'seg-emoji-on' : ''}}">☹</view>
+        <text>失物</text>
+      </view>
+      <view class="seg-item {{typeIndex === 1 ? 'on' : ''}}" data-i="1" bindtap="pickType">
+        <view class="seg-emoji {{typeIndex === 1 ? 'seg-emoji-on' : ''}}">☺</view>
+        <text>招领</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ③ 智能 AI 相机横幅 -->
+  <view class="ai-banner" bindtap="runAi">
+    <view class="ai-glow"></view>
+    <view class="ai-ico-wrap">
+      <view class="ai-spark ai-spark-1">✦</view>
+      <view class="ai-spark ai-spark-2">✧</view>
+      <image class="ai-ico" src="{{icoCamera}}" mode="aspectFit" />
+    </view>
+    <view class="ai-txt">
+      <text class="ai-title">智能 AI 相机</text>
+      <text class="ai-sub">拍照上传，自动识别物品信息</text>
+    </view>
+    <view class="ai-arrow">
+      <view class="ai-chevron"></view>
+    </view>
+  </view>
+
+  <!-- ④ 识别中 / 识别完成 浮动卡片 -->
+  <view class="scan-card {{aiScanning || aiDone ? 'scan-show' : ''}}">
+    <image class="scan-robot" src="{{robot}}" mode="aspectFit" />
+    <view class="scan-body">
+      <text class="scan-title">{{aiScanning ? '正在识别物品…' : '识别完成'}}</text>
+      <text class="scan-sub">{{aiScanning ? '分析照片，为你匹配最佳类别' : aiResult}}</text>
+    </view>
+    <view class="scan-ring {{aiScanning ? 'spin' : ''}}"></view>
+  </view>
+
+  <!-- ⑤ 表单 -->
+  <view class="form-card pub-form">
+
+    <!-- 物品名称 -->
+    <view class="form-row">
+      <view class="form-ico"><image class="f-ico" src="{{icoTag}}" mode="aspectFit" /></view>
+      <view class="form-body">
+        <text class="form-label">物品名称</text>
+        <input class="form-input" value="{{title}}" bindinput="onTitle"
+               placeholder="例如：黑色背包、iPhone、钱包等" placeholder-class="form-input-ph" />
+      </view>
+    </view>
+
+    <!-- 描述 -->
+    <view class="form-row form-row-top">
+      <view class="form-ico"><image class="f-ico" src="{{icoDoc}}" mode="aspectFit" /></view>
+      <view class="form-body">
+        <text class="form-label">描述</text>
+        <textarea class="form-area" value="{{desc}}" bindinput="onDesc" maxlength="200"
+                  placeholder="补充颜色、品牌、尺寸等细节" placeholder-class="form-input-ph"
+                  auto-height />
+      </view>
+    </view>
+
+    <!-- 位置 -->
+    <picker mode="selector" range="{{placeList}}" value="{{placeIndex < 0 ? 0 : placeIndex}}" bindchange="onPlace">
+      <view class="form-row form-row-line">
+        <view class="form-ico"><image class="f-ico" src="{{icoPin}}" mode="aspectFit" /></view>
+        <view class="form-body">
+          <text class="form-label">位置</text>
+          <text class="form-input {{place ? '' : 'form-input-ph'}}">{{place || '例如：图书馆、食堂、教学楼'}}</text>
+        </view>
+        <view class="form-chevron"></view>
+      </view>
+    </picker>
+
+    <!-- 日期 + 类别 并排 -->
+    <view class="form-duo">
+      <picker class="form-half" mode="date" value="{{date}}" bindchange="onDate">
+        <view class="form-row">
+          <view class="form-ico"><image class="f-ico" src="{{icoDate}}" mode="aspectFit" /></view>
+          <view class="form-body">
+            <text class="form-label">日期（可选）</text>
+            <text class="form-input form-input-sm {{date ? '' : 'form-input-ph'}}">{{date || '选择日期'}}</text>
+          </view>
+        </view>
+      </picker>
+      <picker class="form-half" mode="selector" range="{{cateList}}" value="{{cateIndex < 0 ? 0 : cateIndex}}" bindchange="onCate">
+        <view class="form-row">
+          <view class="form-ico"><image class="f-ico" src="{{icoGrid}}" mode="aspectFit" /></view>
+          <view class="form-body">
+            <text class="form-label">类别</text>
+            <text class="form-input form-input-sm {{category ? '' : 'form-input-ph'}}">{{category || '选择类别'}}</text>
+          </view>
+          <view class="form-chevron"></view>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 添加图片 -->
+    <view class="form-row">
+      <view class="form-ico"><image class="f-ico" src="{{icoImage}}" mode="aspectFit" /></view>
+      <view class="form-body">
+        <text class="form-label">添加图片（可选）</text>
+        <text class="form-input form-input-sm form-input-ph">{{images.length ? '已选 ' + images.length + '/3 张' : '最多 3 张，发布后他人可见'}}</text>
+      </view>
+      <view class="img-add" bindtap="addImage">
+        <image class="img-add-ico" src="{{icoPlus}}" mode="aspectFit" />
+      </view>
+    </view>
+
+    <!-- 已选图片 -->
+    <view class="img-list" wx:if="{{images.length}}">
+      <view class="img-item" wx:for="{{images}}" wx:key="*this">
+        <image class="img-thumb" src="{{item}}" mode="aspectFill" />
+        <view class="img-del" data-i="{{index}}" catchtap="delImage">×</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ⑥ 发布 / 保存按钮 -->
+  <view class="pub-submit-wrap">
+    <button wx:if="{{isEdit}}" class="btn btn-plain pub-cancel" bindtap="cancelEdit" disabled="{{submitting}}">
+      取消编辑
+    </button>
+    <button class="btn btn-primary pub-submit" bindtap="submit" disabled="{{submitting}}">
+      {{submitting ? (isEdit ? '保存中…' : '发布中…') : (isEdit ? '保存修改' : '发布')}}
+    </button>
+  </view>
+
+</view>

@@ -1,0 +1,32 @@
+<!-- ============ 发布成功页 ============ -->
+<view class="succ">
+
+  <view class="blob blob-purple succ-blob-1"></view>
+  <view class="blob blob-mint   succ-blob-2"></view>
+  <view class="blob blob-pink   succ-blob-3"></view>
+
+  <view class="succ-body">
+    <!-- 吉祥物 + 光晕 -->
+    <view class="succ-hero">
+      <view class="succ-halo succ-halo-2"></view>
+      <view class="succ-halo"></view>
+      <image class="succ-mascot floaty" src="/assets/images/mascot-bunny.png" mode="aspectFit" />
+      <view class="succ-badge">
+        <view class="succ-check"></view>
+      </view>
+    </view>
+
+    <text class="succ-title">发布成功</text>
+    <text class="succ-tip">信息将在管理员审核通过后展示</text>
+
+    <view class="succ-note">
+      <view class="note-dot"></view>
+      <text>通常 1 个工作日内完成审核，可在「我的发布」查看进度</text>
+    </view>
+
+    <view class="succ-btns">
+      <button class="btn btn-primary succ-btn-main" bindtap="goDetail">查看详情</button>
+      <button class="btn btn-ghost succ-btn-sub" bindtap="goHome">返回首页</button>
+    </view>
+  </view>
+</view>

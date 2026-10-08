@@ -1,0 +1,125 @@
+/* ================= 发布成功页 ================= */
+.succ {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #F7F5FD 0%, #F5F4FC 50%, #FBF9F4 100%);
+  overflow: hidden;
+}
+.succ-blob-1 { width: 280rpx; height: 280rpx; top: -100rpx; left: -90rpx; }
+.succ-blob-2 { width: 220rpx; height: 220rpx; top: 200rpx; right: -90rpx; }
+.succ-blob-3 { width: 220rpx; height: 220rpx; bottom: 80rpx; left: -80rpx; }
+
+.succ-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 200rpx 60rpx 0;
+}
+
+/* 吉祥物 + 光晕 */
+.succ-hero {
+  position: relative;
+  width: 420rpx;
+  height: 420rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.succ-halo {
+  position: absolute;
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155,123,236,.22) 0%, rgba(155,123,236,0) 70%);
+}
+.succ-halo-2 {
+  width: 420rpx;
+  height: 420rpx;
+  background: radial-gradient(circle, rgba(111,224,184,.18) 0%, rgba(111,224,184,0) 72%);
+}
+.succ-mascot { width: 260rpx; height: 260rpx; position: relative; z-index: 2; }
+
+/* 成功勾徽标 */
+.succ-badge {
+  position: absolute;
+  right: 74rpx;
+  bottom: 84rpx;
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #6FE3BE 0%, #3ECFA0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10rpx 26rpx rgba(62,207,160,.42);
+  border: 8rpx solid #FFFFFF;
+  z-index: 3;
+}
+.succ-check {
+  width: 24rpx;
+  height: 14rpx;
+  border-left: 6rpx solid #FFFFFF;
+  border-bottom: 6rpx solid #FFFFFF;
+  transform: rotate(-45deg);
+  margin-top: -6rpx;
+  border-radius: 2rpx;
+}
+
+.succ-title {
+  font-size: 52rpx;
+  font-weight: 800;
+  color: #26243C;
+  letter-spacing: 3rpx;
+  margin-top: 20rpx;
+}
+.succ-tip {
+  font-size: 28rpx;
+  color: #8E8BA3;
+  margin-top: 16rpx;
+  letter-spacing: .5rpx;
+}
+
+.succ-note {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 40rpx;
+  padding: 22rpx 30rpx;
+  background: rgba(255,255,255,.86);
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(139,111,232,.08);
+}
+.note-dot {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #8B6FE8;
+  flex-shrink: 0;
+}
+.succ-note text { font-size: 24rpx; color: #6E6B85; }
+
+/* 按钮 */
+.succ-btns {
+  width: 100%;
+  margin-top: 70rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+.succ-btn-main {
+  width: 100%;
+  height: 104rpx;
+  font-size: 34rpx;
+  letter-spacing: 6rpx;
+  border-radius: 999rpx;
+}
+.succ-btn-sub {
+  width: 100%;
+  height: 100rpx;
+  font-size: 32rpx;
+  letter-spacing: 4rpx;
+  border-radius: 999rpx;
+  background: rgba(255,255,255,.9);
+}
