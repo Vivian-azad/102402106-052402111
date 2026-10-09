@@ -74,27 +74,12 @@
       </view>
     </view>
 
-    <!-- 校园卡照片 -->
-    <view class="auth-upload" bindtap="chooseCard">
-      <view class="form-ico"><image class="f-ico" src="{{ico.image}}" mode="aspectFit" /></view>
-      <view class="auth-upload-body">
-        <text class="form-label">校园卡照片</text>
-        <text class="auth-upload-sub">{{cardImage ? '已上传，点击可更换' : '点击上传，需包含姓名与学号'}}</text>
-      </view>
-      <view class="auth-upload-thumb" wx:if="{{cardImage}}">
-        <image class="auth-thumb-img" src="{{cardImage}}" mode="aspectFill" catchtap="previewCard" />
-      </view>
-      <view class="img-add" wx:else>
-        <view class="img-add-plus">+</view>
-      </view>
-    </view>
-
     <!-- 提交 -->
     <view class="auth-submit-wrap">
       <button class="btn btn-primary auth-submit" bindtap="onSubmit" disabled="{{submitting}}">
         {{submitting ? '提交中…' : '提交认证'}}
       </button>
-      <text class="auth-tip">提交后由管理员审核，通常 1 个工作日内完成</text>
+      <text class="auth-tip">提交后自动通过认证，无需等待审核</text>
     </view>
   </view>
 

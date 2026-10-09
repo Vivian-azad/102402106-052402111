@@ -85,7 +85,7 @@ function updateUser(data) {
 
 // 提交实名认证
 function submitAuth(data) {
-  const patch = Object.assign({ authStatus: '审核中', authReason: '' }, data)
+  const patch = Object.assign({ authStatus: '已认证', authReason: '' }, data)
   return updateUser(patch)
 }
 
