@@ -1,0 +1,87 @@
+<!-- ============ 搜索页 ============ -->
+<view class="se">
+
+  <!-- 品牌区（与首页一致，整体下移避开状态栏与右上角胶囊） -->
+  <view class="se-brand" style="padding-top: {{brandTop}}px;">
+    <view class="brand">
+      <view class="logo">
+        <view class="logo-half logo-l"></view>
+        <view class="logo-half logo-r"></view>
+      </view>
+      <view class="brand-txt">
+        <text class="brand-title">校园失物招领</text>
+        <text class="brand-sub">小物件，大温暖</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 顶部：返回 + 搜索框 -->
+  <view class="se-top">
+    <view class="back-btn" bindtap="onBack">
+      <view class="back-arrow"></view>
+    </view>
+
+    <view class="se-box">
+      <image class="se-box-ico" src="{{ico.search}}" mode="aspectFit" />
+      <input class="se-input" value="{{keyword}}" confirm-type="search"
+             bindinput="onInput" bindconfirm="onSearch"
+             placeholder="搜索物品名称、地点"
+             placeholder-class="se-ph" />
+      <view class="se-clear" wx:if="{{keyword}}" bindtap="clearKw">
+        <image class="se-clear-ico" src="{{ico.close}}" mode="aspectFit" />
+      </view>
+    </view>
+
+    <view class="se-go" bindtap="onSearch">搜索</view>
+  </view>
+
+  <!-- 筛选：类型 -->
+  <view class="se-filter">
+    <text class="se-filter-label">类型</text>
+    <view class="chips">
+      <view wx:for="{{types}}" wx:key="*this"
+            class="chip {{typeIdx === index ? 'chip-on' : ''}}"
+            data-i="{{index}}" bindtap="onType">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 筛选：地点 -->
+  <view class="se-filter">
+    <text class="se-filter-label">地点</text>
+    <view class="chips">
+      <view wx:for="{{places}}" wx:key="*this"
+            class="chip {{placeIdx === index ? 'chip-on' : ''}}"
+            data-i="{{index}}" bindtap="onPlace">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 筛选：时间 -->
+  <view class="se-filter">
+    <text class="se-filter-label">时间</text>
+    <view class="chips">
+      <view wx:for="{{times}}" wx:key="*this"
+            class="chip {{timeIdx === index ? 'chip-on' : ''}}"
+            data-i="{{index}}" bindtap="onTime">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 结果 -->
+  <view class="se-result">
+    <view class="se-count" wx:if="{{searched}}">
+      <text>共 {{list.length}} 条结果</text>
+    </view>
+
+    <view class="feed" wx:if="{{list.length}}">
+      <info-card wx:for="{{list}}" wx:key="id" item="{{item}}" bind:click="onCard" />
+    </view>
+
+    <empty-state
+      wx:elif="{{searched}}"
+      text="暂无相关物品，试试其他关键词"
+      btn="去发布"
+      bind:action="goPublish"
+    />
+  </view>
+
+  <view class="se-space"></view>
+</view>

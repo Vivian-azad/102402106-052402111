@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "info-card": "/components/info-card/index",
+    "empty-state": "/components/empty-state/index"
+  },
+  "navigationStyle": "custom",
+  "backgroundColor": "#FBF9F4"
+}

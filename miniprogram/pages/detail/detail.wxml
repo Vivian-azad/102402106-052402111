@@ -1,0 +1,145 @@
+<!-- ============ 信息详情页 ============ -->
+<view class="detail" wx:if="{{item}}">
+
+  <!-- 顶部：返回圆钮 + 标题 -->
+  <view class="dt-top">
+    <view class="back-btn" bindtap="onBack">
+      <view class="back-arrow"></view>
+    </view>
+    <text class="dt-title">详情</text>
+    <view class="dt-top-holder"></view>
+  </view>
+
+  <!-- 图片 / 缩略图区 -->
+  <view class="dt-hero">
+    <image class="dt-hero-img" src="{{thumbSrc}}" mode="aspectFit" binderror="onThumbError" />
+    <view class="badge badge-{{badgeTone}}">
+      <view class="badge-dot"></view>
+      <text class="badge-txt">{{badgeText}}</text>
+    </view>
+    <view class="pill pill-{{statusTone}} dt-hero-status">
+      <view class="dot"></view>
+      <text>{{statusText}}</text>
+    </view>
+  </view>
+
+  <!-- 主信息卡 -->
+  <view class="dt-card">
+    <text class="dt-name">{{item.title}}</text>
+
+    <view class="dt-rows">
+      <view class="dt-row">
+        <view class="dt-ico"><image class="dt-ico-img" src="{{ico.pin}}" mode="aspectFit" /></view>
+        <view class="dt-row-body">
+          <text class="dt-row-label">位置</text>
+          <text class="dt-row-val">{{item.place}}</text>
+        </view>
+      </view>
+
+      <view class="dt-row">
+        <view class="dt-ico"><image class="dt-ico-img" src="{{ico.clock}}" mode="aspectFit" /></view>
+        <view class="dt-row-body">
+          <text class="dt-row-label">时间</text>
+          <text class="dt-row-val">{{timeText}}</text>
+        </view>
+      </view>
+
+      <view class="dt-row" wx:if="{{item.category}}">
+        <view class="dt-ico"><image class="dt-ico-img" src="{{ico.shield}}" mode="aspectFit" /></view>
+        <view class="dt-row-body">
+          <text class="dt-row-label">类别</text>
+          <text class="dt-row-val">{{item.category}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 描述 -->
+    <view class="dt-desc" wx:if="{{item.description}}">
+      <text class="dt-desc-label">描述</text>
+      <text class="dt-desc-txt">{{item.description}}</text>
+    </view>
+
+    <!-- 图片列表 -->
+    <view class="dt-imgs" wx:if="{{item.images && item.images.length}}">
+      <image
+        wx:for="{{item.images}}"
+        wx:key="*this"
+        class="dt-img"
+        src="{{item}}"
+        mode="aspectFill"
+        data-src="{{item}}"
+        bindtap="previewImg"
+      />
+    </view>
+  </view>
+
+  <!-- 联系方式卡 -->
+  <view class="dt-card dt-contact">
+    <view class="dt-contact-head">
+      <text class="dt-contact-title">联系方式</text>
+      <view class="pill pill-{{certified ? 'done' : 'gray'}}">
+        <view class="dot"></view>
+        <text>{{certified ? '已认证可查看' : '需实名认证'}}</text>
+      </view>
+    </view>
+
+    <block wx:if="{{certified}}">
+      <view class="dt-contact-val">
+        <text class="dt-contact-num">{{item.contact}}</text>
+        <view class="dt-copy" bindtap="copyContact">
+          <image class="dt-copy-ico" src="{{ico.copy}}" mode="aspectFit" />
+          <text>复制</text>
+        </view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="dt-lock">
+        <image class="dt-lock-ico" src="{{ico.shield}}" mode="aspectFit" />
+        <view class="dt-lock-txt">
+          <text class="dt-lock-t1">完成实名认证后查看</text>
+          <text class="dt-lock-t2">认证免费，仅用于保障信息真实性</text>
+        </view>
+        <view class="dt-lock-btn" bindtap="goAuth">去认证</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 举报入口 -->
+  <view class="dt-report" bindtap="report">
+    <image class="dt-report-ico" src="{{ico.info}}" mode="aspectFit" />
+    <text>信息有误？举报该信息</text>
+  </view>
+
+  <view class="dt-bottom-space"></view>
+
+  <!-- 底部操作条 -->
+  <view class="dt-bar">
+    <block wx:if="{{isPublisher}}">
+      <button class="btn btn-primary dt-bar-btn" bindtap="openStatusPop">
+        修改状态
+      </button>
+    </block>
+    <block wx:else>
+      <button class="btn btn-ghost dt-bar-btn dt-bar-half" bindtap="copyContact">复制联系方式</button>
+      <button class="btn btn-primary dt-bar-btn" bindtap="contactTa">联系 TA</button>
+    </block>
+  </view>
+
+  <!-- 修改状态弹窗 -->
+  <view class="pop-mask" wx:if="{{showStatusPop}}" bindtap="closePop">
+    <view class="pop" catchtap="noop">
+      <view class="pop-bar"></view>
+      <text class="pop-title">修改状态</text>
+      <text class="pop-sub">{{item.type === '招领' ? '物品已归还给失主？' : '物品已经被找到？'}}</text>
+      <view class="pop-opt" bindtap="confirmStatus">
+        <view class="pop-opt-txt">
+          <text class="pop-opt-t1">{{item.type === '招领' ? '已归还' : '已找到'}}</text>
+          <text class="pop-opt-t2">标记为已完成，将不再展示给其他人</text>
+        </view>
+        <view class="pop-radio"></view>
+      </view>
+      <button class="btn btn-plain pop-cancel" bindtap="closePop">取消</button>
+    </view>
+  </view>
+</view>

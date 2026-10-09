@@ -1,0 +1,61 @@
+<!-- ============ 我的发布 ============ -->
+<view class="mp">
+
+  <view class="blob blob-purple mp-blob-1"></view>
+  <view class="blob blob-mint   mp-blob-2"></view>
+
+  <!-- 顶部 -->
+  <view class="dt-top">
+    <view class="back-btn" bindtap="onBack">
+      <view class="back-arrow"></view>
+    </view>
+    <text class="dt-title">我的发布</text>
+    <view class="dt-top-holder"></view>
+  </view>
+
+  <!-- 统计条 -->
+  <view class="mp-stat" wx:if="{{list.length}}">
+    <view class="mp-stat-item">
+      <text class="mp-stat-num">{{list.length}}</text>
+      <text class="mp-stat-txt">全部发布</text>
+    </view>
+    <view class="mp-stat-line"></view>
+    <view class="mp-stat-item">
+      <text class="mp-stat-num mp-stat-mint">{{doneCount}}</text>
+      <text class="mp-stat-txt">已完成</text>
+    </view>
+    <view class="mp-stat-line"></view>
+    <view class="mp-stat-item">
+      <text class="mp-stat-num mp-stat-purple">{{waitCount}}</text>
+      <text class="mp-stat-txt">进行中</text>
+    </view>
+  </view>
+
+  <view class="mp-tip" wx:if="{{list.length}}">
+    <text>点击卡片可修改状态，右上角图标可编辑或删除</text>
+  </view>
+
+  <!-- 列表 -->
+  <view class="feed" wx:if="{{list.length}}">
+    <info-card
+      wx:for="{{list}}"
+      wx:key="id"
+      item="{{item}}"
+      editable="{{true}}"
+      bind:click="onCard"
+      bind:edit="onEdit"
+      bind:delete="onDelete"
+    />
+  </view>
+
+  <!-- 空状态 -->
+  <view class="mp-empty" wx:if="{{!list.length && !loading}}">
+    <empty-state
+      text="你还没有发布过信息"
+      btn="去发布"
+      bind:action="goPublish"
+    />
+  </view>
+
+  <view class="mp-space"></view>
+</view>
