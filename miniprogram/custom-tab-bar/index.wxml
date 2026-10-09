@@ -1,0 +1,15 @@
+<!-- 自定义底部导航 · 首页 / 发布 / 我的 -->
+<view class="tabbar">
+  <view class="tabbar-inner">
+    <view
+      wx:for="{{list}}"
+      wx:key="pagePath"
+      class="tb-item"
+      data-i="{{index}}"
+      bindtap="switchTab"
+    >
+      <image class="tb-ico" src="{{selected === index ? icoOn[item.key] : icoOff[item.key]}}" mode="aspectFit" />
+      <text class="tb-txt {{selected === index ? 'tb-on' : ''}}">{{item.text}}</text>
+    </view>
+  </view>
+</view>

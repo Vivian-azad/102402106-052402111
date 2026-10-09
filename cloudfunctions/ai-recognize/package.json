@@ -1,0 +1,9 @@
+{
+  "name": "ai-recognize",
+  "version": "1.0.0",
+  "description": "校园失物招领 - AI 物品识别（云开发 AI 视觉大模型）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "^4.0.1"
+  }
+}

@@ -1,0 +1,193 @@
+/* ================= 实名认证页 ================= */
+.auth {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #F7F5FD 0%, #F5F4FC 45%, #F4F3FB 100%);
+  overflow: hidden;
+  padding-bottom: 80rpx;
+}
+.auth-blob-1 { width: 260rpx; height: 260rpx; top: -70rpx; left: -90rpx; }
+.auth-blob-2 { width: 220rpx; height: 220rpx; top: 300rpx; right: -90rpx; }
+.auth-blob-3 { width: 240rpx; height: 240rpx; bottom: 120rpx; left: -100rpx; }
+
+/* 顶部（复用发布页样式） */
+.pub-top {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 110rpx 40rpx 0;
+  z-index: 2;
+}
+.back-btn {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 20rpx rgba(139,111,232,.14);
+  flex-shrink: 0;
+}
+.back-arrow {
+  width: 20rpx;
+  height: 20rpx;
+  border-left: 4rpx solid #3A3752;
+  border-bottom: 4rpx solid #3A3752;
+  transform: rotate(45deg);
+  margin-left: 6rpx;
+  border-radius: 2rpx;
+}
+.pub-head {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6rpx;
+}
+.pub-title {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #292653;
+  letter-spacing: 2rpx;
+  line-height: 1.25;
+}
+.pub-sub {
+  font-size: 26rpx;
+  color: #7B77A0;
+  margin-top: 8rpx;
+}
+.pub-mascot {
+  width: 120rpx;
+  height: 120rpx;
+  flex-shrink: 0;
+  margin-top: -10rpx;
+}
+
+/* ---------- 状态横幅 ---------- */
+.auth-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+  margin: 34rpx 40rpx 0;
+  padding: 30rpx 32rpx;
+  border-radius: 32rpx;
+  z-index: 2;
+}
+.auth-banner-purple { background: linear-gradient(135deg, #B49BF3 0%, #8B6FE8 100%); box-shadow: 0 12rpx 30rpx rgba(139,111,232,.30); }
+.auth-banner-mint   { background: linear-gradient(135deg, #6FE3BE 0%, #3ECFA0 100%); box-shadow: 0 12rpx 30rpx rgba(62,207,160,.30); }
+.auth-banner-warn   { background: linear-gradient(135deg, #F7C97A 0%, #F2B24C 100%); box-shadow: 0 12rpx 30rpx rgba(242,178,76,.30); }
+.auth-banner-danger { background: linear-gradient(135deg, #F5A0A0 0%, #F08A8A 100%); box-shadow: 0 12rpx 30rpx rgba(240,138,138,.30); }
+
+.auth-banner-ico {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,.24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.auth-banner-img { width: 48rpx; height: 48rpx; }
+.auth-banner-txt { flex: 1; display: flex; flex-direction: column; }
+.auth-banner-t1 {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: .5rpx;
+}
+.auth-banner-t2 {
+  font-size: 24rpx;
+  color: rgba(255,255,255,.9);
+  margin-top: 8rpx;
+  line-height: 1.5;
+}
+
+/* ---------- 表单 ---------- */
+.auth-form { position: relative; z-index: 2; }
+.auth-form .form-card {
+  margin: 30rpx 40rpx 0;
+  background: rgba(255,255,255,.88);
+  border-radius: 32rpx;
+  box-shadow: 0 8rpx 26rpx rgba(139,111,232,.08);
+  overflow: hidden;
+}
+.f-ico { width: 38rpx; height: 38rpx; }
+
+/* 上传校园卡 */
+.auth-upload {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  margin: 24rpx 40rpx 0;
+  padding: 30rpx 28rpx;
+  background: rgba(255,255,255,.88);
+  border-radius: 32rpx;
+  box-shadow: 0 8rpx 26rpx rgba(139,111,232,.08);
+}
+.auth-upload-body { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.auth-upload-sub {
+  font-size: 24rpx;
+  color: #A6A3B8;
+  margin-top: 6rpx;
+}
+.auth-upload-thumb {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #F0EFF8;
+}
+.auth-thumb-img { width: 100%; height: 100%; }
+.img-add {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  background: #EDEBF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.img-add-plus {
+  font-size: 44rpx;
+  color: #8B6FE8;
+  line-height: 1;
+  margin-top: -4rpx;
+}
+
+/* 提交 */
+.auth-submit-wrap {
+  padding: 44rpx 40rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auth-submit {
+  width: 100%;
+  height: 104rpx;
+  font-size: 36rpx;
+  letter-spacing: 8rpx;
+  border-radius: 999rpx;
+}
+.auth-tip {
+  font-size: 23rpx;
+  color: #A6A3B8;
+  margin-top: 22rpx;
+  text-align: center;
+}
+
+/* 不可提交 */
+.auth-blocked {
+  margin: 80rpx 40rpx 0;
+  padding: 60rpx 40rpx;
+  background: rgba(255,255,255,.8);
+  border-radius: 32rpx;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.auth-blocked-txt { font-size: 28rpx; color: #6E6B85; line-height: 1.7; }

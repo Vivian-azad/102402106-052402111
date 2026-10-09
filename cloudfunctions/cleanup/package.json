@@ -1,0 +1,9 @@
+{
+  "name": "cleanup",
+  "version": "1.0.0",
+  "description": "校园失物招领 - 一次性数据清洗（status 脏值 + 地点归一）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -5,7 +5,10 @@
     "pages/publish-success/publish-success",
     "pages/search/search",
     "pages/detail/detail",
-    "pages/my-publish/my-publish"
+    "pages/my-publish/my-publish",
+    "pages/edit-profile/edit-profile",
+    "pages/auth/auth",
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundColor": "#FBF9F4",
@@ -16,6 +19,7 @@
     "navigationStyle": "custom"
   },
   "tabBar": {
+    "custom": true,
     "color": "#B8B3C7",
     "selectedColor": "#3ECFA0",
     "backgroundColor": "#FFFFFF",
@@ -23,9 +27,11 @@
     "list": [
       { "pagePath": "pages/index/index", "text": "首页" },
       { "pagePath": "pages/publish/publish", "text": "发布" },
-      { "pagePath": "pages/my-publish/my-publish", "text": "我的" }
+      { "pagePath": "pages/profile/profile", "text": "我的" }
     ]
   },
+  "permission": {},
+  "requiredPrivateInfos": [],
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "style": "v2",

@@ -17,13 +17,13 @@ Page({
     icoBook: '',
     hero: '/assets/images/hero-campus.jpg',
     avatar: '/assets/images/mascot-bunny.png',
-    // 校园图上的浮动地点气泡（坐标按新头图建筑位置标定）
-    // 新图布局：左上楼群(教学楼) / 中上玻璃圆顶主楼(图书馆) / 右上高楼(晋江楼) / 左侧田径跑道(体育场地)
+    // 校园图上的浮动地点气泡（坐标按新头图建筑位置标定，纯展示不可点击）
+    // 图布局：左上楼群(教学楼) / 中上玻璃圆顶主楼(图书馆) / 右上高楼(晋江楼) / 左侧田径跑道(体育馆)
     spots: [
-      { name: '教学楼',   x: 20, y: 22, tone: 'mint' },
-      { name: '图书馆',   x: 52, y: 30, tone: 'purple' },
-      { name: '晋江楼',   x: 84, y: 14, tone: 'mint' },
-      { name: '体育场地', x: 15, y: 52, tone: 'purple' }
+      { name: '教学楼', x: 20, y: 22, tone: 'mint' },
+      { name: '图书馆', x: 52, y: 30, tone: 'purple' },
+      { name: '晋江楼', x: 76, y: 16, tone: 'mint' },
+      { name: '体育馆', x: 15, y: 52, tone: 'purple' }
     ]
   },
 
@@ -75,16 +75,10 @@ Page({
   goSearch()    { wx.navigateTo({ url: '/pages/search/search' }) },
   goPublish()   { wx.switchTab({ url: '/pages/publish/publish' }) },
   goMine()      { wx.switchTab({ url: '/pages/profile/profile' }) },
-  goMap()       { wx.navigateTo({ url: '/pages/map/map' }) },
   goAll()       { wx.navigateTo({ url: '/pages/search/search' }) },
   goDetail(e) {
     const id = e.detail && e.detail.id
     if (id) wx.navigateTo({ url: '/pages/detail/detail?id=' + id })
-  },
-
-  // 点击校园图上的地点气泡 → 地图页
-  tapSpot() {
-    wx.navigateTo({ url: '/pages/map/map' })
   },
 
   noop() {}

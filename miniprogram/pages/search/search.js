@@ -2,7 +2,7 @@ const api = require('../../utils/api')
 const icons = require('../../utils/icons')
 
 const TYPES  = ['全部', '寻物', '招领']
-const PLACES = ['全部', '图书馆', '食堂', '教学楼', '宿舍区', '操场', '晋江楼', '体育场地']
+const PLACES = ['全部', '图书馆', '食堂', '教学楼', '宿舍区', '晋江楼', '体育馆']
 const TIMES  = ['全部', '今天', '近三天', '近一周']
 const TIME_MAP = { '今天': 'today', '近三天': '3d', '近一周': '7d' }
 

@@ -1,0 +1,77 @@
+<!-- ============ 个人中心 ============ -->
+<view class="pf has-tabbar">
+
+  <view class="blob blob-purple pf-blob-1"></view>
+  <view class="blob blob-mint   pf-blob-2"></view>
+
+  <!-- 顶部标题 -->
+  <view class="pf-head" style="padding-top: {{navTop}}px;">
+    <text class="pf-title">我的</text>
+    <!-- 右上角装饰：固定为兔子吉祥物，不随用户头像变化 -->
+    <image class="pf-avatar floaty" src="/assets/images/mascot-bunny.png" mode="aspectFit" />
+  </view>
+
+  <!-- 用户卡 -->
+  <view class="ucard">
+    <!-- 点击头像 / 用户名区域 → 编辑个人资料 -->
+    <view class="ucard-top" bindtap="goEditProfile">
+      <view class="uavatar">
+        <image class="uavatar-img" src="{{avatar}}" mode="aspectFill" binderror="onAvatarError" />
+      </view>
+      <view class="uinfo">
+        <text class="uname">{{nick}}</text>
+        <view class="pill pill-{{authTone}} uchip">
+          <view class="dot"></view>
+          <text>{{authText}}</text>
+        </view>
+      </view>
+      <image class="uinfo-chev" src="{{ico.chev}}" mode="aspectFit" />
+    </view>
+
+    <view class="ustats">
+      <view class="ustat" bindtap="goMyPublish">
+        <text class="ustat-n">{{myCount}}</text>
+        <text class="ustat-l">我的发布</text>
+      </view>
+      <view class="ustat-line"></view>
+      <view class="ustat">
+        <text class="ustat-n ustat-mint">{{doneCount}}</text>
+        <text class="ustat-l">已完成</text>
+      </view>
+      <view class="ustat-line"></view>
+      <view class="ustat" bindtap="goAuth">
+        <text class="ustat-n ustat-purple">{{authText}}</text>
+        <text class="ustat-l">认证状态</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="menu">
+    <view class="mi" bindtap="goMyPublish">
+      <view class="mi-ico"><image class="mi-img" src="{{ico.doc}}" mode="aspectFit" /></view>
+      <text class="mi-label">我的发布</text>
+      <image class="mi-chev" src="{{ico.chev}}" mode="aspectFit" />
+    </view>
+    <view class="mi" bindtap="goAuth">
+      <view class="mi-ico"><image class="mi-img" src="{{ico.shield}}" mode="aspectFit" /></view>
+      <text class="mi-label">实名认证</text>
+      <view class="mi-right">
+        <text class="mi-tag" wx:if="{{authText === '未认证' || authText === '已驳回'}}">去完成</text>
+        <image class="mi-chev" src="{{ico.chev}}" mode="aspectFit" />
+      </view>
+    </view>
+    <view class="mi" bindtap="goAdmin">
+      <view class="mi-ico"><image class="mi-img" src="{{ico.grid}}" mode="aspectFit" /></view>
+      <text class="mi-label">管理后台</text>
+      <image class="mi-chev" src="{{ico.chev}}" mode="aspectFit" />
+    </view>
+    <view class="mi" bindtap="goAbout">
+      <view class="mi-ico"><image class="mi-img" src="{{ico.info}}" mode="aspectFit" /></view>
+      <text class="mi-label">关于我们</text>
+      <image class="mi-chev" src="{{ico.chev}}" mode="aspectFit" />
+    </view>
+  </view>
+
+  <view class="brand-foot">小物件，大温暖 · 校园失物招领</view>
+</view>

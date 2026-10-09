@@ -1,0 +1,58 @@
+<!-- ============ 编辑个人资料 ============ -->
+<view class="ep">
+
+  <view class="blob blob-purple ep-blob-1"></view>
+  <view class="blob blob-mint   ep-blob-2"></view>
+
+  <!-- 顶部 -->
+  <view class="dt-top" style="padding-top: {{navTop}}px;">
+    <view class="back-btn" bindtap="onBack">
+      <view class="back-arrow"></view>
+    </view>
+    <text class="dt-title">个人资料</text>
+    <view class="dt-top-holder"></view>
+  </view>
+
+  <!-- 头像 -->
+  <view class="ep-avatar-wrap">
+    <view class="ep-avatar" bindtap="chooseAvatar">
+      <image class="ep-avatar-img" src="{{avatar}}" mode="aspectFill" binderror="onAvatarError" />
+      <view class="ep-avatar-cam">
+        <image class="ep-cam-ico" src="{{ico.camera}}" mode="aspectFit" />
+      </view>
+    </view>
+    <text class="ep-avatar-tip">点击更换头像</text>
+    <text class="ep-avatar-sub" bindtap="previewAvatar" wx:if="{{avatar}}">查看大图</text>
+  </view>
+
+  <!-- 表单 -->
+  <view class="form-card ep-form">
+    <view class="form-row">
+      <view class="form-ico"><image class="f-ico" src="{{ico.user}}" mode="aspectFit" /></view>
+      <view class="form-body">
+        <text class="form-label">用户名</text>
+        <input class="form-input" value="{{nickname}}" bindinput="onNick" maxlength="20"
+               placeholder="请输入用户名" placeholder-class="form-input-ph" />
+      </view>
+    </view>
+
+    <view class="form-row">
+      <view class="form-ico"><image class="f-ico" src="{{ico.phone}}" mode="aspectFit" /></view>
+      <view class="form-body">
+        <text class="form-label">联系方式</text>
+        <input class="form-input" value="{{phone}}" bindinput="onPhone" type="text" maxlength="20"
+               placeholder="请输入手机号 / 微信号" placeholder-class="form-input-ph" />
+      </view>
+    </view>
+  </view>
+
+  <view class="ep-note">联系方式用于让失主或拾到者联系你，实名认证后可查看他人联系方式。</view>
+
+  <!-- 保存 -->
+  <view class="ep-submit-wrap">
+    <view class="btn btn-primary ep-submit {{saving ? 'is-saving' : ''}}" bindtap="save">
+      {{saving ? '保存中…' : '保存'}}
+    </view>
+  </view>
+
+</view>

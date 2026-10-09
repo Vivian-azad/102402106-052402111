@@ -1,0 +1,106 @@
+<!-- ============ 实名认证页 ============ -->
+<view class="auth">
+
+  <!-- 光斑 -->
+  <view class="blob blob-purple auth-blob-1"></view>
+  <view class="blob blob-pink   auth-blob-2"></view>
+  <view class="blob blob-mint   auth-blob-3"></view>
+
+  <!-- 顶部 -->
+  <view class="pub-top">
+    <view class="back-btn" bindtap="onBack">
+      <view class="back-arrow"></view>
+    </view>
+    <view class="pub-head">
+      <text class="pub-title">实名认证</text>
+      <text class="pub-sub">仅用于保障信息真实性</text>
+    </view>
+    <image class="pub-mascot floaty" src="{{mascot}}" mode="aspectFit" />
+  </view>
+
+  <!-- 状态横幅 -->
+  <view class="auth-banner auth-banner-{{banner.tone}}">
+    <view class="auth-banner-ico">
+      <image class="auth-banner-img" src="{{bannerIcon}}" mode="aspectFit" />
+    </view>
+    <view class="auth-banner-txt">
+      <text class="auth-banner-t1">{{banner.title}}</text>
+      <text class="auth-banner-t2">{{banner.sub}}</text>
+    </view>
+  </view>
+
+  <!-- 表单 -->
+  <view class="auth-form" wx:if="{{canSubmit}}">
+
+    <view class="form-card">
+      <!-- 真实姓名 -->
+      <view class="form-row">
+        <view class="form-ico"><image class="f-ico" src="{{ico.user}}" mode="aspectFit" /></view>
+        <view class="form-body">
+          <text class="form-label">真实姓名</text>
+          <input class="form-input" value="{{form.realName}}" data-f="realName" bindinput="onInput"
+                 placeholder="请输入真实姓名" placeholder-class="form-input-ph" />
+        </view>
+      </view>
+
+      <!-- 学号 -->
+      <view class="form-row">
+        <view class="form-ico"><image class="f-ico" src="{{ico.tag}}" mode="aspectFit" /></view>
+        <view class="form-body">
+          <text class="form-label">学号</text>
+          <input class="form-input" value="{{form.studentId}}" data-f="studentId" bindinput="onInput"
+                 placeholder="请输入学号" placeholder-class="form-input-ph" />
+        </view>
+      </view>
+
+      <!-- 学院/班级 -->
+      <view class="form-row">
+        <view class="form-ico"><image class="f-ico" src="{{ico.grid}}" mode="aspectFit" /></view>
+        <view class="form-body">
+          <text class="form-label">学院 / 班级（可选）</text>
+          <input class="form-input" value="{{form.college}}" data-f="college" bindinput="onInput"
+                 placeholder="如：计算机学院 2024 级 3 班" placeholder-class="form-input-ph" />
+        </view>
+      </view>
+
+      <!-- 手机号 -->
+      <view class="form-row">
+        <view class="form-ico"><image class="f-ico" src="{{ico.phone}}" mode="aspectFit" /></view>
+        <view class="form-body">
+          <text class="form-label">手机号</text>
+          <input class="form-input" type="number" value="{{form.phone}}" data-f="phone" bindinput="onInput"
+                 placeholder="请输入手机号" placeholder-class="form-input-ph" />
+        </view>
+      </view>
+    </view>
+
+    <!-- 校园卡照片 -->
+    <view class="auth-upload" bindtap="chooseCard">
+      <view class="form-ico"><image class="f-ico" src="{{ico.image}}" mode="aspectFit" /></view>
+      <view class="auth-upload-body">
+        <text class="form-label">校园卡照片</text>
+        <text class="auth-upload-sub">{{cardImage ? '已上传，点击可更换' : '点击上传，需包含姓名与学号'}}</text>
+      </view>
+      <view class="auth-upload-thumb" wx:if="{{cardImage}}">
+        <image class="auth-thumb-img" src="{{cardImage}}" mode="aspectFill" catchtap="previewCard" />
+      </view>
+      <view class="img-add" wx:else>
+        <view class="img-add-plus">+</view>
+      </view>
+    </view>
+
+    <!-- 提交 -->
+    <view class="auth-submit-wrap">
+      <button class="btn btn-primary auth-submit" bindtap="onSubmit" disabled="{{submitting}}">
+        {{submitting ? '提交中…' : '提交认证'}}
+      </button>
+      <text class="auth-tip">提交后由管理员审核，通常 1 个工作日内完成</text>
+    </view>
+  </view>
+
+  <!-- 不可提交时的提示 -->
+  <view class="auth-blocked" wx:else>
+    <text class="auth-blocked-txt">{{status === '审核中' ? '资料审核中，请耐心等待，暂不可重复提交' : '你已完成实名认证'}}</text>
+  </view>
+
+</view>

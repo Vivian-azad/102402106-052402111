@@ -92,7 +92,6 @@
 .hero {
   position: relative;
   margin-top: 4rpx;
-  padding: 0 8rpx;
 }
 .hero-img { width: 100%; display: block; }
 

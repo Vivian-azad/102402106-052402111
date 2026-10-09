@@ -45,7 +45,7 @@ const items = [
   { _id: 'i1', type: '寻物', title: '校园卡', description: '黑色校园卡，卡面有轻微划痕，丢失时装在透明卡套里。', place: '教学楼', time: at(0, 14, 30), contact: 'wxid_lin123', images: [], status: '已通过', auditReason: '', publisherId: 'u1', createTime: at(0, 14, 35) },
   { _id: 'i2', type: '寻物', title: '蓝牙耳机', description: '白色 AirPods，右耳有划痕，遗失在图书馆三楼。', place: '图书馆', time: at(1, 16, 10), contact: '13800002222', images: [], status: '已通过', auditReason: '', publisherId: 'u2', createTime: at(1, 16, 20) },
   { _id: 'i3', type: '招领', title: '折叠雨伞', description: '蓝色长柄折叠伞，拾于食堂门口伞架上。', place: '食堂', time: at(1, 12, 0), contact: 'wx_chen', images: [], status: '已通过', auditReason: '', publisherId: 'u2', createTime: at(1, 12, 30) },
-  { _id: 'i4', type: '寻物', title: '双肩书包', description: '灰色耐克双肩包，内有课本若干，已找回。', place: '体育场地', time: at(4, 18, 0), contact: 'wxid_lin123', images: [], status: '已完成', auditReason: '', publisherId: 'u1', createTime: at(4, 18, 30) },
+  { _id: 'i4', type: '寻物', title: '双肩书包', description: '灰色耐克双肩包，内有课本若干，已找回。', place: '体育馆', time: at(4, 18, 0), contact: 'wxid_lin123', images: [], status: '已完成', auditReason: '', publisherId: 'u1', createTime: at(4, 18, 30) },
   { _id: 'i5', type: '招领', title: '房门钥匙', description: '一串钥匙，挂红色小熊挂件，拾于宿舍楼下。', place: '宿舍区', time: at(2, 20, 0), contact: '13800003333', images: [], status: '已通过', auditReason: '', publisherId: 'u3', createTime: at(2, 20, 10) },
   { _id: 'i6', type: '寻物', title: '笔记本', description: '蓝色封面笔记本，写有高数笔记。', place: '教学楼', time: at(0, 10, 0), contact: 'wx_chen', images: [], status: '待审核', auditReason: '', publisherId: 'u2', createTime: at(0, 10, 5) },
   { _id: 'i7', type: '招领', title: '保温水杯', description: '白色保温杯，信息不完整已驳回。', place: '图书馆', time: at(3, 9, 0), contact: 'wxid_lin123', images: [], status: '已驳回', auditReason: '请补充丢失/捡到具体时间与联系方式', publisherId: 'u1', createTime: at(3, 9, 10) },
@@ -63,7 +63,7 @@ const places = [
   { _id: 'p2', name: '宿舍区' },
   { _id: 'p3', name: '食堂' },
   { _id: 'p4', name: '图书馆' },
-  { _id: 'p5', name: '体育场地' },
+  { _id: 'p5', name: '体育馆' },
   { _id: 'p6', name: '其他' }
 ]
 

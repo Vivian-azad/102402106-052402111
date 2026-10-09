@@ -1,0 +1,155 @@
+/* ================= 个人中心 ================= */
+.pf {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #F7F5FD 0%, #F5F4FC 40%, #FBF9F4 100%);
+  overflow: hidden;
+}
+.pf-blob-1 { width: 260rpx; height: 260rpx; top: -80rpx; left: -90rpx; }
+.pf-blob-2 { width: 220rpx; height: 220rpx; top: 80rpx; right: -90rpx; }
+
+/* 顶部 */
+.pf-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 130rpx 40rpx 10rpx;   /* padding-top 由页面按机型动态覆盖 */
+  z-index: 2;
+}
+.pf-title {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #26243C;
+  letter-spacing: 2rpx;
+}
+.pf-avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/* 用户卡 */
+.ucard {
+  position: relative;
+  margin: 20rpx 40rpx 0;
+  padding: 34rpx 32rpx 10rpx;
+  background: #FFFFFF;
+  border-radius: 36rpx;
+  box-shadow: 0 10rpx 32rpx rgba(139,111,232,.10);
+  z-index: 2;
+}
+.ucard-top { display: flex; align-items: center; gap: 24rpx; }
+.uavatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  background: linear-gradient(150deg, #EFE9FD 0%, #E5FAF3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.uavatar-img { width: 96rpx; height: 96rpx; border-radius: 50%; }
+/* 用户卡右侧箭头（提示可进入资料编辑） */
+.uinfo-chev {
+  width: 24rpx;
+  height: 24rpx;
+  flex-shrink: 0;
+  opacity: .8;
+}
+.uinfo { display: flex; flex-direction: column; gap: 12rpx; flex: 1; }
+.uname {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #26243C;
+  letter-spacing: 1rpx;
+}
+.uchip { align-self: flex-start; height: 48rpx; padding: 0 22rpx; font-size: 24rpx; }
+
+/* 统计 */
+.ustats {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  padding: 26rpx 0 30rpx;
+  border-top: 2rpx solid #F4F3FA;
+}
+.ustat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+.ustat-n {
+  font-size: 38rpx;
+  font-weight: 800;
+  color: #26243C;
+  line-height: 1;
+}
+.ustat-mint   { color: #3ECFA0; }
+.ustat-purple { color: #8B6FE8; font-size: 30rpx; }
+.ustat-l { font-size: 24rpx; color: #9C99B0; }
+.ustat-line { width: 2rpx; height: 52rpx; background: #F2F1F8; }
+
+/* 菜单 */
+.menu {
+  position: relative;
+  margin: 28rpx 40rpx 0;
+  background: #FFFFFF;
+  border-radius: 36rpx;
+  box-shadow: 0 10rpx 32rpx rgba(139,111,232,.08);
+  overflow: hidden;
+  z-index: 2;
+}
+.mi {
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+  padding: 32rpx 30rpx;
+  position: relative;
+}
+.mi + .mi::before {
+  content: '';
+  position: absolute;
+  left: 118rpx; right: 30rpx; top: 0;
+  height: 2rpx;
+  background: #F6F5FA;
+}
+.mi-ico {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  background: #F3EEFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mi-img { width: 38rpx; height: 38rpx; }
+.mi-label {
+  flex: 1;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2A2740;
+}
+.mi-right { display: flex; align-items: center; gap: 12rpx; }
+.mi-tag {
+  font-size: 22rpx;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #9B7DEE, #8B6FE8);
+}
+.mi-chev { width: 26rpx; height: 26rpx; }
+
+.brand-foot {
+  text-align: center;
+  font-size: 24rpx;
+  color: #B7B4C7;
+  padding: 60rpx 0 40rpx;
+  letter-spacing: 2rpx;
+  position: relative;
+  z-index: 2;
+}

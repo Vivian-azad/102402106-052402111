@@ -18,7 +18,7 @@ module.exports = {
   env: 'cloud1-d3g0c773s4025f962',
 
   // 是否使用 Mock 数据（true 可直接预览；false 走云开发）
-  useMock: true,
+  useMock: false,
 
   // 管理员 openid 白名单（云模式下拥有后台权限）
   // 获取方式：登录后调用 api.getOpenid()，或在云函数日志中查看

@@ -23,7 +23,6 @@
       wx:key="name"
       class="spot spot-{{item.tone}}"
       style="left:{{item.x}}%; top:{{item.y}}%;"
-      bindtap="tapSpot"
     >
       <view class="spot-ico spot-ico-{{item.tone}}">
         <image class="spot-img" src="{{icoBook}}" mode="aspectFit" />

@@ -44,7 +44,7 @@ Page({
     placeIndex: -1,
     cateIndex: -1,
 
-    placeList: ['图书馆', '食堂', '教学楼', '宿舍区', '操场', '晋江楼', '体育场地', '其他'],
+    placeList: ['图书馆', '食堂', '教学楼', '宿舍区', '体育馆', '晋江楼', '其他'],
     cateList: cate.CATE_LIST
   },
 
